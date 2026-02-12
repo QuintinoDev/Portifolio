@@ -67,11 +67,6 @@ const PROFILE = {
     "Metodologias": ["Scrum", "GitFlow"]
   },
 
-  additionalInfo: [
-    "Disponivel para mudancas e viagens",
-    "CNH categoria B com veiculo proprio"
-  ],
-
   // Atualize com numeros reais para causar impacto
   metrics: [
     { value: "3", label: "Projetos back-end completos", hint: "Entregues na empresa" },
@@ -438,16 +433,6 @@ function competenciesSection() {
   `;
 }
 
-function additionalInfoSection() {
-  const items = PROFILE.additionalInfo.map(item => `<li>${escapeHtml(item)}</li>`).join("");
-  return `
-    <div class="case-results">
-      <strong>Informacoes adicionais</strong>
-      <ul>${items}</ul>
-    </div>
-  `;
-}
-
 function sectionExperiencia() {
   return `
     <section id="experiencia" class="card pad">
@@ -693,9 +678,6 @@ function sectionSobre() {
         </div>
       </div>
 
-      <hr class="sep"/>
-
-      ${additionalInfoSection()}
     </section>
   `;
 }
