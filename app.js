@@ -1,8 +1,8 @@
 ﻿// ========= CONFIG (edite aqui rápido) =========
 const PROFILE = {
-  name: "Joao Victor Quintino de Brito",
+  name: "João Victor Quintino de Brito",
   role: "Full Stack Developer",
-  headline: "Construo APIs e sistemas corporativos com foco em seguranca, escalabilidade e impacto no negocio.",
+  headline: "Construo APIs e sistemas corporativos com foco em segurança, escalabilidade e impacto no negócio.",
 
   email: "joaovictorquintinobrito@gmail.com",
   secondaryEmail: "jvqb.dev@gmail.com",
@@ -15,7 +15,7 @@ const PROFILE = {
 
   // WhatsApp: use DDD + numero, so digitos (ex: 5561999999999)
   whatsappNumber: "5561983842637",
-  whatsappMessage: "Ola, Joao! Vi seu portfolio e gostaria de conversar sobre uma oportunidade.",
+  whatsappMessage: "Olá, João! Vi seu portfólio e gostaria de conversar sobre uma oportunidade.",
 
   // Sua imagem PNG sem fundo
   heroImageSrc: "./imagens/foto_trabalho.png",
@@ -24,35 +24,35 @@ const PROFILE = {
 
   specialties: [
     "APIs REST com ASP.NET Core",
-    "Autenticacao JWT + RBAC",
-    "Integracoes com sistemas externos",
+    "Autenticação JWT + RBAC",
+    "Integrações com sistemas externos",
     "Modelagem SQL e performance"
   ],
 
   codeHighlights: [
-    { label: "Repositorio principal (NovoImperio)", href: "https://github.com/QuintinoDev/NovoImperio" },
+    { label: "Repositório principal (NovoImperio)", href: "https://github.com/QuintinoDev/NovoImperio" },
     { label: "Perfil GitHub", href: "https://github.com/QuintinoDev" },
     { label: "LinkedIn profissional", href: "https://www.linkedin.com/in/jo%C3%A3o-quintino-dev/" }
   ],
 
   availability: {
-    location: "Brasilia - DF",
-    workMode: "Hibrido / Remoto",
-    english: "Intermediario (leitura tecnica e conversa basica)",
-    responseTime: "Retorno em ate 24h util",
-    mobility: "Disponivel para viagens"
+    location: "Brasília - DF",
+    workMode: "Híbrido / Remoto",
+    english: "Intermediário (leitura técnica e conversação básica)",
+    responseTime: "Retorno em até 24h útil",
+    mobility: "Disponível para viagens"
   },
 
   objective:
-    "Atuar como Desenvolvedor Full Stack / Backend, contribuindo com APIs, integracoes, modelagem de dados e CI/CD, evoluindo continuamente em arquitetura, seguranca e escalabilidade.",
+    "Atuar como Desenvolvedor Full Stack / Backend, contribuindo com APIs, integrações, modelagem de dados e CI/CD, evoluindo continuamente em arquitetura, segurança e escalabilidade.",
 
   summary:
-    "Desenvolvedor Full Stack com foco em ASP.NET Core, integracoes entre sistemas e solucoes corporativas. Experiencia com SQL Server, PostgreSQL, CI/CD no Azure DevOps, Docker e arquitetura em camadas.",
+    "Desenvolvedor Full Stack com foco em ASP.NET Core, integrações entre sistemas e soluções corporativas. Experiência com SQL Server, PostgreSQL, CI/CD no Azure DevOps, Docker e arquitetura em camadas.",
 
   education: [
-    "Pos-graduacao em Arquitetura e Desenvolvimento de Sistemas com enfase em Padroes de Projeto (GRAN) - Concluido",
-    "Pos-graduacao em Linguagens e Paradigmas de Programacao (GRAN) - Concluido",
-    "Analise e Desenvolvimento de Sistemas (UDF) - Concluido"
+    "Pós-graduação em Arquitetura e Desenvolvimento de Sistemas com ênfase em Padrões de Projeto (GRAN) - Concluído",
+    "Pós-graduação em Linguagens e Paradigmas de Programação (GRAN) - Concluído",
+    "Análise e Desenvolvimento de Sistemas (UDF) - Concluído"
   ],
 
   certifications: [
@@ -63,7 +63,7 @@ const PROFILE = {
     "Linguagens e frameworks": ["C#", "ASP.NET Core", "Java", "Angular", "Blazor", "Spring Boot", "Quarkus"],
     "Banco de dados": ["SQL Server", "PostgreSQL", "MySQL", "Microsoft Access"],
     "DevOps e ferramentas": ["Docker", "Azure DevOps", "Git", "GitHub", "Swagger", "CI/CD"],
-    "Arquitetura e boas praticas": ["Clean Architecture", "SOLID", "Design Patterns", "DDD", "JWT", "RBAC", "APIs RESTful"],
+    "Arquitetura e boas práticas": ["Clean Architecture", "SOLID", "Design Patterns", "DDD", "JWT", "RBAC", "APIs RESTful"],
     "Metodologias": ["Scrum", "GitFlow"]
   },
 
@@ -388,7 +388,7 @@ function availabilitySection() {
   return `
     <div class="availability-grid">
       <div class="availability-item">
-        <strong>Localizacao</strong>
+        <strong>Localização</strong>
         <span>${escapeHtml(a.location)}</span>
       </div>
       <div class="availability-item">
@@ -396,7 +396,7 @@ function availabilitySection() {
         <span>${escapeHtml(a.workMode)}</span>
       </div>
       <div class="availability-item">
-        <strong>Ingles</strong>
+        <strong>Inglês</strong>
         <span>${escapeHtml(a.english)}</span>
       </div>
       <div class="availability-item">
@@ -425,7 +425,7 @@ function competenciesSection() {
 
   return `
     <div class="case-results">
-      <strong>Competencias tecnicas</strong>
+      <strong>Competências técnicas</strong>
       <div class="grid competency-grid" style="margin-top:10px;">
         ${groups}
       </div>
@@ -478,14 +478,14 @@ function sectionExperiencia() {
         })}
 
         ${expItem({
-          role: "Sargento Temporario",
-          company: "Exercito Brasileiro",
+          role: "Sargento Temporário",
+          company: "Exército Brasileiro",
           period: "Mar/2020 — Mar/2025",
           bullets: [
-            "Manutencao e atualizacao de bancos de dados utilizados pela secao.",
-            "Suporte tecnico a usuarios (hardware e software).",
-            "Manutencao de sistemas desenvolvidos em Java.",
-            "Atuacao em sistemas administrativos (SISCOFIS e Microsoft Access)."
+            "Manutenção e atualização de bancos de dados utilizados pela seção.",
+            "Suporte técnico a usuários (hardware e software).",
+            "Manutenção de sistemas desenvolvidos em Java.",
+            "Atuação em sistemas administrativos (SISCOFIS e Microsoft Access)."
           ],
         })}
 
@@ -587,23 +587,23 @@ function caseStudyCard() {
   return `
     <article class="card" style="padding:16px; background: var(--card-2); border: 1px solid var(--stroke-2);">
       <h3 class="h3">Case em destaque: Sistema de Gestão para Barbearia</h3>
-      <div class="small" style="margin-top:6px;">Problema • Solucao • Resultado</div>
+      <div class="small" style="margin-top:6px;">Problema • Solução • Resultado</div>
       <div class="grid case-study-grid" style="margin-top:12px;">
         <div class="case-study-item">
           <strong>Problema</strong>
-          <p class="p">Agendamentos manuais por WhatsApp, conflitos de horario e baixa previsibilidade no atendimento.</p>
+          <p class="p">Agendamentos manuais por WhatsApp, conflitos de horário e baixa previsibilidade no atendimento.</p>
         </div>
         <div class="case-study-item">
-          <strong>Solucao</strong>
-          <p class="p">API em ASP.NET Core + JWT e frontend Blazor com regras de disponibilidade, bloqueios e permissao por perfil.</p>
+          <strong>Solução</strong>
+          <p class="p">API em ASP.NET Core + JWT e frontend Blazor com regras de disponibilidade, bloqueios e permissão por perfil.</p>
         </div>
         <div class="case-study-item">
           <strong>Resultado</strong>
-          <p class="p">Fluxo de agendamento padronizado, menos retrabalho operacional e atendimento diario mais rapido.</p>
+          <p class="p">Fluxo de agendamento padronizado, menos retrabalho operacional e atendimento diário mais rápido.</p>
         </div>
       </div>
       <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-        <a class="btn btn-primary" href="${escapeAttr(PROFILE.primaryProjectUrl)}" target="_blank" rel="noreferrer">Ver repositorio</a>
+        <a class="btn btn-primary" href="${escapeAttr(PROFILE.primaryProjectUrl)}" target="_blank" rel="noreferrer">Ver repositório</a>
       </div>
     </article>
   `;
@@ -656,24 +656,24 @@ function sectionSobre() {
         </div>
 
         <div class="card" style="padding:16px; background: var(--card-2); border: 1px solid var(--stroke-2);">
-          <h3 class="h3">Codigo em destaque</h3>
+          <h3 class="h3">Código em destaque</h3>
           <ul class="highlight-links" style="margin:10px 0 0; padding-left:18px;">
             ${codeLinks}
           </ul>
         </div>
 
         <div class="card" style="padding:16px; background: var(--card-2); border: 1px solid var(--stroke-2);">
-          <h3 class="h3">Formacao</h3>
+          <h3 class="h3">Formação</h3>
           <ul class="highlight-links" style="margin:10px 0 0; padding-left:18px;">
             ${educationItems}
           </ul>
         </div>
 
         <div class="card" style="padding:16px; background: var(--card-2); border: 1px solid var(--stroke-2);">
-          <h3 class="h3">Certificacao e idioma</h3>
+          <h3 class="h3">Certificação e idioma</h3>
           <ul class="highlight-links" style="margin:10px 0 0; padding-left:18px;">
             ${certificationItems}
-            <li>${escapeHtml(`Ingles - ${PROFILE.availability.english}`)}</li>
+            <li>${escapeHtml(`Inglês - ${PROFILE.availability.english}`)}</li>
           </ul>
         </div>
       </div>
@@ -700,10 +700,10 @@ function sectionContato() {
             <strong>Email:</strong> <a href="mailto:${encodeURIComponent(PROFILE.email)}">${escapeHtml(PROFILE.email)}</a><br/>
             <strong>Email (alternativo):</strong> <a href="mailto:${encodeURIComponent(PROFILE.secondaryEmail)}">${escapeHtml(PROFILE.secondaryEmail)}</a><br/>
             <strong>Telefone:</strong> <a href="https://wa.me/${escapeAttr(String(PROFILE.whatsappNumber).replace(/\D/g, ""))}" target="_blank" rel="noreferrer">${escapeHtml(PROFILE.phone)}</a><br/>
-            <strong>Localizacao:</strong> ${escapeHtml(PROFILE.location)}<br/>
+            <strong>Localização:</strong> ${escapeHtml(PROFILE.location)}<br/>
             <strong>GitHub:</strong> <a href="${escapeAttr(PROFILE.github)}" target="_blank" rel="noreferrer">Abrir</a><br/>
             <strong>LinkedIn:</strong> <a href="${escapeAttr(PROFILE.linkedin)}" target="_blank" rel="noreferrer">Abrir</a><br/>
-            <strong>Curriculo (PDF):</strong> <a href="${escapeAttr(PROFILE.cvUrl)}" target="_blank" rel="noreferrer" download>Baixar</a><br/>
+            <strong>Currículo (PDF):</strong> <a href="${escapeAttr(PROFILE.cvUrl)}" target="_blank" rel="noreferrer" download>Baixar</a><br/>
             <strong>WhatsApp:</strong> <a href="${escapeAttr(buildWhatsAppUrl(PROFILE.whatsappNumber, PROFILE.whatsappMessage))}" target="_blank" rel="noreferrer">Abrir chat</a>
           </p>
         </div>
