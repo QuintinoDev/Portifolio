@@ -4,8 +4,7 @@ const PROFILE = {
   role: "Full Stack Developer",
   headline: "Construo APIs e sistemas corporativos com foco em segurança, escalabilidade e impacto no negócio.",
 
-  email: "joaovictorquintinobrito@gmail.com",
-  secondaryEmail: "jvqb.dev@gmail.com",
+  email: "jvqb.dev@gmail.com",
   phone: "+55 61 98384-2637",
   location: "Brasilia - DF",
   github: "https://github.com/QuintinoDev",
@@ -27,12 +26,6 @@ const PROFILE = {
     "Autenticação JWT + RBAC",
     "Integrações com sistemas externos",
     "Modelagem SQL e performance"
-  ],
-
-  codeHighlights: [
-    { label: "Repositório principal (NovoImperio)", href: "https://github.com/QuintinoDev/NovoImperio" },
-    { label: "Perfil GitHub", href: "https://github.com/QuintinoDev" },
-    { label: "LinkedIn profissional", href: "https://www.linkedin.com/in/jo%C3%A3o-quintino-dev/" }
   ],
 
   availability: {
@@ -90,9 +83,6 @@ function mount() {
   document.getElementById("footerName").textContent = PROFILE.name;
   document.getElementById("brandRole").textContent = PROFILE.role;
   document.getElementById("year").textContent = String(new Date().getFullYear());
-
-  document.getElementById("githubLink").href = PROFILE.github;
-  document.getElementById("linkedinLink").href = PROFILE.linkedin;
 
   // WhatsApp floating button
   document.getElementById("waFloat").href =
@@ -437,7 +427,7 @@ function sectionExperiencia() {
   return `
     <section id="experiencia" class="card pad">
       <h2 class="h2">Experiência</h2>
-      <p class="p" style="margin-top:10px;">
+      <p class="p section-intro">
         Minha experiência profissional e projetos relevantes.
       </p>
 
@@ -478,18 +468,6 @@ function sectionExperiencia() {
         })}
 
         ${expItem({
-          role: "Sargento Temporário",
-          company: "Exército Brasileiro",
-          period: "Mar/2020 — Mar/2025",
-          bullets: [
-            "Manutenção e atualização de bancos de dados utilizados pela seção.",
-            "Suporte técnico a usuários (hardware e software).",
-            "Manutenção de sistemas desenvolvidos em Java.",
-            "Atuação em sistemas administrativos (SISCOFIS e Microsoft Access)."
-          ],
-        })}
-
-        ${expItem({
           role: "Desenvolvedor Full Stack | Projeto Próprio",
           company: "Projeto Pessoal — Sistema de Gestão para Barbearia",
           period: "Projeto pessoal",
@@ -512,7 +490,7 @@ function sectionProjetos() {
   return `
     <section id="projetos" class="card pad">
       <h2 class="h2">Projetos</h2>
-      <p class="p" style="margin-top:10px;">
+      <p class="p section-intro">
         Cases reais com resultados. Alguns projetos corporativos não possuem link público.
       </p>
 
@@ -523,23 +501,6 @@ function sectionProjetos() {
       <hr class="sep"/>
 
       <div class="grid projects-grid">
-        ${projectCard({
-          title: "Sistema de Gestão para Barbearia",
-          desc: "Agenda, barbeiros, serviços, clientes e regras de indisponibilidade. Autenticação e permissões.",
-          meta: "Projeto próprio • Full Stack • 2025",
-          stack: ["ASP.NET", "Blazor", "PostgreSQL", "JWT"],
-          results: [
-            "Eliminou mensagens manuais e envio de horários por WhatsApp.",
-            "Agenda 100% integrada: barbeiros só abrem e trabalham com os horários marcados.",
-            "Fluxo de atendimento mais rápido e organizado no dia a dia."
-          ],
-          links: [
-            { label: "GitHub", href: "https://github.com/QuintinoDev/NovoImperio" },
-            { label: "Visão geral", href: "#sobre" },
-          ],
-          col: 12,
-        })}
-
         ${projectCard({
           title: "API de Agendamentos",
           desc: "Endpoint de horários disponíveis, validações e criação de agendamentos sem conflito.",
@@ -587,7 +548,18 @@ function caseStudyCard() {
   return `
     <article class="card" style="padding:16px; background: var(--card-2); border: 1px solid var(--stroke-2);">
       <h3 class="h3">Case em destaque: Sistema de Gestão para Barbearia</h3>
-      <div class="small" style="margin-top:6px;">Problema • Solução • Resultado</div>
+      <div class="small" style="margin-top:6px;">Projeto próprio • Full Stack • 2025</div>
+      <p class="p" style="margin-top:10px;">
+        Agenda, barbeiros, serviços, clientes e regras de indisponibilidade com autenticação e permissões.
+      </p>
+
+      <div class="badges" style="margin-top:12px;">
+        <span class="badge">ASP.NET</span>
+        <span class="badge">Blazor</span>
+        <span class="badge">PostgreSQL</span>
+        <span class="badge">JWT</span>
+      </div>
+
       <div class="grid case-study-grid" style="margin-top:12px;">
         <div class="case-study-item">
           <strong>Problema</strong>
@@ -602,8 +574,19 @@ function caseStudyCard() {
           <p class="p">Fluxo de agendamento padronizado, menos retrabalho operacional e atendimento diário mais rápido.</p>
         </div>
       </div>
+
+      <div class="case-results" style="margin-top:12px;">
+        <strong>Resultados</strong>
+        <ul>
+          <li>Eliminou mensagens manuais e envio de horários por WhatsApp.</li>
+          <li>Agenda 100% integrada: barbeiros só abrem e trabalham com os horários marcados.</li>
+          <li>Fluxo de atendimento mais rápido e organizado no dia a dia.</li>
+        </ul>
+      </div>
+
       <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
         <a class="btn btn-primary" href="${escapeAttr(PROFILE.primaryProjectUrl)}" target="_blank" rel="noreferrer">Ver repositório</a>
+        <a class="btn btn-ghost" href="#sobre">Visão geral</a>
       </div>
     </article>
   `;
@@ -611,9 +594,6 @@ function caseStudyCard() {
 
 function sectionSobre() {
   const stackBadges = PROFILE.stack.map(s => `<span class="badge">${escapeHtml(s)}</span>`).join("");
-  const codeLinks = PROFILE.codeHighlights
-    .map(item => `<li><a href="${escapeAttr(item.href)}" target="_blank" rel="noreferrer">${escapeHtml(item.label)}</a></li>`)
-    .join("");
   const educationItems = PROFILE.education
     .map(item => `<li>${escapeHtml(item)}</li>`)
     .join("");
@@ -624,7 +604,7 @@ function sectionSobre() {
   return `
     <section id="sobre" class="card pad">
       <h2 class="h2">Sobre</h2>
-      <p class="p" style="margin-top:10px;">${escapeHtml(PROFILE.summary)}</p>
+      <p class="p section-intro">${escapeHtml(PROFILE.summary)}</p>
 
       <hr class="sep"/>
 
@@ -656,13 +636,6 @@ function sectionSobre() {
         </div>
 
         <div class="card" style="padding:16px; background: var(--card-2); border: 1px solid var(--stroke-2);">
-          <h3 class="h3">Código em destaque</h3>
-          <ul class="highlight-links" style="margin:10px 0 0; padding-left:18px;">
-            ${codeLinks}
-          </ul>
-        </div>
-
-        <div class="card" style="padding:16px; background: var(--card-2); border: 1px solid var(--stroke-2);">
           <h3 class="h3">Formação</h3>
           <ul class="highlight-links" style="margin:10px 0 0; padding-left:18px;">
             ${educationItems}
@@ -686,7 +659,7 @@ function sectionContato() {
   return `
     <section id="contato" class="card pad">
       <h2 class="h2">Contato</h2>
-      <p class="p" style="margin-top:10px;">
+      <p class="p section-intro">
         Me chama por email, LinkedIn ou WhatsApp (botão flutuante no canto inferior direito).
         Você também pode usar o formulário abaixo (ele abre seu cliente de email).
       </p>
@@ -698,7 +671,6 @@ function sectionContato() {
           <h3 class="h3">Links rápidos</h3>
           <p class="p" style="margin-top:10px;">
             <strong>Email:</strong> <a href="mailto:${encodeURIComponent(PROFILE.email)}">${escapeHtml(PROFILE.email)}</a><br/>
-            <strong>Email (alternativo):</strong> <a href="mailto:${encodeURIComponent(PROFILE.secondaryEmail)}">${escapeHtml(PROFILE.secondaryEmail)}</a><br/>
             <strong>Telefone:</strong> <a href="https://wa.me/${escapeAttr(String(PROFILE.whatsappNumber).replace(/\D/g, ""))}" target="_blank" rel="noreferrer">${escapeHtml(PROFILE.phone)}</a><br/>
             <strong>Localização:</strong> ${escapeHtml(PROFILE.location)}<br/>
             <strong>GitHub:</strong> <a href="${escapeAttr(PROFILE.github)}" target="_blank" rel="noreferrer">Abrir</a><br/>
@@ -752,6 +724,7 @@ function expItem({ role, company, period, bullets }) {
         </div>
         <span class="badge">${escapeHtml(period)}</span>
       </div>
+      <div class="small" style="margin-top:10px;">Principais contribuições</div>
       <ul style="margin:12px 0 0; padding-left:18px;">
         ${lis}
       </ul>
