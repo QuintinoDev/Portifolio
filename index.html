@@ -1,0 +1,71 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Joao Victor | Full Stack Developer</title>
+  <meta name="description" content="Portfólio de Joao Victor Quintino de Brito, desenvolvedor Full Stack com foco em ASP.NET Core, Blazor, APIs REST, integrações corporativas e arquitetura de software." />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0b1428" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Joao Victor | Full Stack Developer" />
+  <meta property="og:description" content="Projetos, experiência profissional e cases reais em backend, integrações e sistemas corporativos." />
+  <meta property="og:image" content="./imagens/foto_trabalho.png" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="Joao Victor | Full Stack Developer" />
+  <meta property="twitter:description" content="Portfólio com cases e resultados em desenvolvimento full stack." />
+  <meta property="twitter:image" content="./imagens/foto_trabalho.png" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#app">Pular para o conteúdo</a>
+  <header class="topbar" role="banner">
+    <div class="brand">
+      <div class="brand-dot" aria-hidden="true"></div>
+      <div class="brand-text">
+        <strong id="brandName">João</strong>
+        <span id="brandRole">Full Stack Developer</span>
+      </div>
+    </div>
+
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#home">Home</a>
+      <a href="#experiencia">Experiência</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-controls="app" aria-expanded="false">&#9776;</button>
+  </header>
+
+  <main class="app-shell" role="main">
+    <div id="app" class="page"></div>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> <span id="footerName">João</span>. Feito com HTML, CSS e JS.</span>
+    <span class="footer-links">
+      <a href="#" id="githubLink" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="#" id="linkedinLink" target="_blank" rel="noreferrer">LinkedIn</a>
+    </span>
+  </footer>
+
+  <!-- Floating WhatsApp button -->
+  <a id="waFloat" class="wa-float" href="#" target="_blank" rel="noreferrer" aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path d="M19.11 17.41c-.27-.14-1.58-.78-1.82-.87-.24-.09-.42-.14-.6.14-.18.27-.69.87-.85 1.05-.16.18-.31.2-.58.07-.27-.14-1.12-.41-2.13-1.31-.79-.7-1.32-1.56-1.47-1.82-.15-.27-.02-.41.11-.55.12-.12.27-.31.4-.46.13-.16.18-.27.27-.46.09-.18.04-.34-.02-.48-.07-.14-.6-1.45-.82-1.99-.22-.52-.44-.45-.6-.46h-.52c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29 0 1.35.98 2.66 1.11 2.85.14.18 1.93 2.95 4.67 4.13.65.28 1.15.44 1.54.56.65.21 1.24.18 1.71.11.52-.08 1.58-.65 1.8-1.28.22-.63.22-1.17.16-1.28-.07-.11-.24-.18-.52-.32z"/>
+      <path d="M16.01 2.67C8.79 2.67 2.92 8.54 2.92 15.76c0 2.32.61 4.5 1.69 6.39L3.5 29.33l7.35-1.92c1.81.99 3.89 1.56 6.16 1.56 7.22 0 13.09-5.87 13.09-13.09S23.23 2.67 16.01 2.67zm0 23.8c-2.1 0-4.05-.61-5.69-1.66l-.41-.26-4.36 1.14 1.17-4.25-.27-.43a10.35 10.35 0 0 1-1.64-5.61c0-5.72 4.66-10.38 10.38-10.38S26.39 9.68 26.39 15.4 21.73 26.47 16.01 26.47z"/>
+    </svg>
+  </a>
+
+  <script src="./app.js"></script>
+  <noscript>
+    <div style="padding:12px 18px; color:#fff; background:#111a33; border-top:1px solid rgba(255,255,255,0.12);">
+      Este portfolio usa JavaScript para renderizar o conteudo principal. Ative o JavaScript no navegador para visualizar tudo.
+    </div>
+  </noscript>
+</body>
+</html>
