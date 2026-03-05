@@ -502,6 +502,22 @@ function sectionProjetos() {
 
       <div class="grid projects-grid">
         ${projectCard({
+          title: "ABBA POC (Angular)",
+          desc: "Prova de conceito desenvolvida em Angular para validar estrutura de frontend, componentização e fluxo de dados em uma aplicação moderna.",
+          meta: "POC • Frontend • Destaque em Angular",
+          stack: ["Angular", "TypeScript", "Componentes", "SPA"],
+          results: [
+            "POC criada para demonstrar experiência prática com Angular.",
+            "Estrutura orientada a componentes, com foco em organização e evolução do código.",
+            "Repositório público para avaliação técnica do projeto."
+          ],
+          links: [
+            { label: "Ver repositório", href: "https://github.com/QuintinoDev/abba-poc" }
+          ],
+          col: 12,
+        })}
+
+        ${projectCard({
           title: "API de Agendamentos",
           desc: "Endpoint de horários disponíveis, validações e criação de agendamentos sem conflito.",
           meta: "API REST • EF Core • PostgreSQL",
