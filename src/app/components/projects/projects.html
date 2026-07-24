@@ -1,0 +1,56 @@
+<section id="projetos" class="section projects">
+  <div class="container">
+    <div appReveal class="projects__header">
+      <span class="eyebrow">03 — Projetos em destaque</span>
+      <h2 class="heading-lg">Sistemas que projetei e entreguei</h2>
+    </div>
+
+    <div class="projects__list">
+      @for (project of projects; track project.name) {
+        <article appReveal appTilt class="project-card surface-card">
+          <div class="project-card__glow" data-tilt-glow aria-hidden="true"></div>
+
+          <div class="project-card__media">
+            <app-image-slot
+              [src]="project.caseStudy.screenshots[0]?.src ?? null"
+              [alt]="project.shotDescription"
+              [label]="project.shotDescription"
+            />
+            <span class="project-card__number" aria-hidden="true">{{ project.no }}</span>
+            @if (project.caseStudy.status === 'in-development') {
+              <span class="project-card__badge">Em desenvolvimento</span>
+            }
+          </div>
+
+          <div class="project-card__body">
+            <span class="project-card__category">{{ project.category }}</span>
+            <h3 class="project-card__title">{{ project.name }}</h3>
+            <p class="project-card__desc">{{ project.desc }}</p>
+
+            <ul class="project-card__bullets">
+              @for (bullet of project.bullets; track bullet) {
+                <li><span aria-hidden="true">▸</span>{{ bullet }}</li>
+              }
+            </ul>
+
+            <ul class="project-card__stack">
+              @for (tech of project.stack; track tech) {
+                <li>{{ tech }}</li>
+              }
+            </ul>
+
+            <div class="project-card__actions">
+              <button type="button" class="btn btn-primary" (click)="openCaseStudy(project)">
+                Ver case study completo
+              </button>
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+
+    <p appReveal class="projects__philosophy">&ldquo;{{ philosophy }}&rdquo;</p>
+  </div>
+</section>
+
+<app-case-study-modal [project]="openProject()" (closed)="closeCaseStudy()" />

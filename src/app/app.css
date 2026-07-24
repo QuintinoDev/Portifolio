@@ -1,0 +1,10 @@
+:host {
+  display: block;
+}
+
+.app-shell {
+  position: relative;
+  min-height: 100vh;
+  background: var(--color-void-black);
+  isolation: isolate;
+}

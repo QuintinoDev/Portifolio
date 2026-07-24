@@ -1,0 +1,48 @@
+<section id="sobre" class="section about">
+  <div class="container">
+    <div appReveal class="about__header">
+      <span class="eyebrow">01 — Sobre mim</span>
+      <h2 class="heading-lg about__heading">
+        Backend sólido, frontend afiado e a cabeça de um <span class="text-accent">arquiteto</span>.
+      </h2>
+    </div>
+
+    <div class="about__grid">
+      <div appReveal appTilt class="about__card surface-card">
+        <div class="about__card-glow" data-tilt-glow aria-hidden="true"></div>
+        <p class="about__paragraph">
+          Desenvolvedor Full Stack com foco em <strong>backend .NET (C# / ASP.NET Core)</strong> e frontend SPA
+          (Angular e Blazor), atuando no ciclo completo de APIs RESTful, sistemas corporativos e integrações entre
+          plataformas via REST e SOAP.
+        </p>
+        <p class="about__paragraph">
+          Sólido domínio de <strong>T-SQL</strong> e Entity Framework Core, aplicando
+          <strong>SOLID, Clean Architecture, DDD</strong> e Design Patterns em projetos reais, com pipelines CI/CD no
+          Azure DevOps e containerização via Docker.
+        </p>
+        <p class="about__paragraph about__paragraph--muted">
+          Carrego um <strong class="about__highlight">background de 5 anos no Exército Brasileiro</strong> —
+          disciplina, liderança e gestão sob pressão. Em transição consolidada para atuação Pleno, buscando ownership
+          técnico e arquitetura de soluções.
+        </p>
+        <ul class="about__tags">
+          @for (tag of aboutTags; track tag) {
+            <li class="chip">{{ tag }}</li>
+          }
+        </ul>
+      </div>
+
+      <div appReveal [revealDelay]="0.1" class="about__side">
+        <div class="about__photo">
+          <app-image-slot [src]="null" alt="Foto de trabalho de João Victor" label="Foto de trabalho / setup" />
+        </div>
+        <div class="about__location surface-card">
+          <p class="about__location-title">
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>{{ profile.location }}
+          </p>
+          <p class="about__location-sub">{{ profile.availability }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

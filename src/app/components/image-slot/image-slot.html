@@ -1,0 +1,15 @@
+@if (src) {
+  <img
+    [src]="src"
+    [alt]="alt"
+    class="image-slot__img"
+    [class.image-slot__img--circle]="shape === 'circle'"
+    [attr.loading]="priority ? null : 'lazy'"
+    [attr.fetchpriority]="priority ? 'high' : null"
+  />
+} @else {
+  <div class="image-slot__placeholder" [class.image-slot__placeholder--circle]="shape === 'circle'">
+    <i class="fa-solid fa-image" aria-hidden="true"></i>
+    <span>{{ label }}</span>
+  </div>
+}

@@ -1,0 +1,61 @@
+.stats-section {
+  position: relative;
+  z-index: 2;
+  padding: 0 var(--page-pad-inline) 40px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.stats-card {
+  text-align: center;
+  padding: 26px 16px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.stats-card__number {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 700;
+  line-height: 1;
+  background: linear-gradient(120deg, #ffffff, var(--color-brushed-chrome-mid));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stats-card__label {
+  font-size: 13.5px;
+  color: var(--color-graphite-soft);
+  margin-top: 9px;
+  font-weight: 500;
+}
+
+@media (max-width: 980px) {
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.lighthouse-badge {
+  margin-top: 20px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--color-graphite-faint);
+}
+
+.lighthouse-badge i {
+  color: var(--color-steel-periwinkle);
+  margin-right: 6px;
+}
+
+.lighthouse-badge__score {
+  color: var(--color-fog-slate);
+  font-weight: 600;
+}

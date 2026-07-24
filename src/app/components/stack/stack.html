@@ -1,0 +1,54 @@
+<section id="stack" class="section stack">
+  <div class="container">
+    <div appReveal class="stack__header">
+      <span class="eyebrow">02 — Stack tecnológica</span>
+      <h2 class="heading-lg">Ferramentas do ofício</h2>
+    </div>
+
+    <div class="stack__grid">
+      <div class="stack__left">
+        <div appReveal class="surface-card stack__skills">
+          <p class="stack__skills-title">Competências principais</p>
+          <div class="stack__skills-list">
+            @for (skill of coreSkills; track skill.name) {
+              <div>
+                <div class="stack__skill-row">
+                  <span class="stack__skill-name"><i [class]="skill.cls" aria-hidden="true"></i>{{ skill.name }}</span>
+                  <span class="stack__skill-value">{{ skill.label }}</span>
+                </div>
+                <div class="stack__skill-track">
+                  <div class="stack__skill-fill" [appSkillBar]="skill.level"></div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+
+        <div appReveal [revealDelay]="0.12" class="stack__env">
+          <p class="stack__env-comment"># ambiente de desenvolvimento</p>
+          @for (line of envCommands; track line.cmd) {
+            <p class="stack__env-line">
+              <span class="stack__env-prompt">$</span> <span class="stack__env-cmd">{{ line.cmd }}</span> {{ line.args }}&nbsp;&nbsp;<span class="stack__env-value">{{ line.value }}</span>
+            </p>
+          }
+          <p class="stack__env-ready">▸ ambiente pronto para buildar.</p>
+        </div>
+      </div>
+
+      <div class="stack__categories">
+        @for (cat of stackCategories; track cat.title) {
+          <div appReveal class="surface-card stack__category">
+            <p class="stack__category-title">{{ cat.title }}</p>
+            <ul class="stack__category-items">
+              @for (item of cat.items; track item) {
+                <li>{{ item }}</li>
+              }
+            </ul>
+          </div>
+        }
+      </div>
+    </div>
+
+    <app-github-activity />
+  </div>
+</section>

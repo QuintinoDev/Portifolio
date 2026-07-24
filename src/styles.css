@@ -1,0 +1,333 @@
+/* ==========================================================================
+   Design tokens — see DESIGN.md ("The Architect's Terminal")
+   ========================================================================== */
+:root {
+  /* Neutrals */
+  --color-void-black: #0a0a0c;
+  --color-panel-ink: #101014;
+  --color-deep-ink: #0b0d1a;
+  --color-frost-white: #e8eaf2;
+  --color-graphite-body: #b6bcda;
+  --color-graphite-muted: #9298b6;
+  --color-graphite-soft: #8b90a8;
+  --color-graphite-faint: #6b7095;
+
+  /* Accent — single hue family (steel/graphite blue-gray) */
+  --color-steel-periwinkle: #9fb2d6;
+  --color-steel-periwinkle-bright: #8fa8d6;
+  --color-fog-slate: #aabcdd;
+  --color-ash-silver: #a6a6b0;
+  --color-brushed-chrome-mid: #93a7cc;
+
+  /* Aluminum surface — reserved for primary actions + monogram */
+  --color-aluminum-start: #f4f4f6;
+  --color-aluminum-end: #cfcfd6;
+  --color-ink-on-aluminum: #141418;
+
+  /* Third-party brand colors (kept true, not restyled) */
+  --color-angular-red: #dd0031;
+
+  /* Type */
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Manrope', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Shape */
+  --radius-sm: 9px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-xl: 24px;
+  --radius-pill: 100px;
+
+  /* Space */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 44px;
+  --space-xl: 90px;
+
+  /* Motion */
+  --ease-reveal: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --duration-reveal: 0.7s;
+
+  --container-max: 1240px;
+  --container-narrow: 1080px;
+  --page-pad-inline: clamp(20px, 5vw, 64px);
+}
+
+/* ==========================================================================
+   Reset
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--color-void-black);
+  color: var(--color-frost-white);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+figure {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--color-fog-slate);
+  text-decoration: none;
+  transition: color 0.25s;
+}
+
+a:hover {
+  color: #fff;
+}
+
+button,
+input {
+  font-family: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+::selection {
+  background: rgba(150, 150, 162, 0.32);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-panel-ink);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#4a4a52, #26262c);
+  border-radius: 8px;
+}
+
+/* Visible keyboard focus everywhere — the cursor ring is a decoration, not a focus indicator */
+:focus-visible {
+  outline: 2px solid var(--color-steel-periwinkle-bright);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+  a,
+  button,
+  input {
+    cursor: none;
+  }
+}
+
+/* ==========================================================================
+   Layout helpers
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.container--narrow {
+  max-width: var(--container-narrow);
+}
+
+.section {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-xl) var(--page-pad-inline);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 16px;
+  z-index: 10000;
+  background: var(--color-panel-ink);
+  color: var(--color-frost-white);
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+/* ==========================================================================
+   Typography helpers
+   ========================================================================== */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: var(--color-steel-periwinkle);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.heading-lg {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(30px, 4.5vw, 50px);
+  letter-spacing: -1px;
+  color: #fff;
+  text-wrap: pretty;
+}
+
+.text-accent {
+  color: var(--color-ash-silver);
+}
+
+.text-chrome {
+  background: linear-gradient(115deg, #ffffff 0%, var(--color-brushed-chrome-mid) 45%, #eef2f9 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================================================
+   Shared components
+   ========================================================================== */
+.surface-card {
+  border-radius: var(--radius-lg);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 15px;
+  border-radius: var(--radius-pill);
+  background: rgba(196, 198, 210, 0.12);
+  border: 1px solid rgba(112, 142, 196, 0.34);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-fog-slate);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 15px 28px;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 15px;
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-aluminum-start), var(--color-aluminum-end));
+  color: var(--color-ink-on-aluminum);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.btn-primary:hover {
+  color: var(--color-ink-on-aluminum);
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--color-frost-white);
+}
+
+.btn-ghost:hover {
+  color: var(--color-frost-white);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+/* Reveal-on-scroll base state; the directive toggles [data-revealed] */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity var(--duration-reveal) var(--ease-reveal),
+    transform var(--duration-reveal) var(--ease-reveal);
+}
+
+[data-reveal][data-revealed='true'] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -1,0 +1,19 @@
+<section class="section now-section">
+  <div class="container">
+    <div appReveal class="now-panel">
+      <div class="now-panel__kicker">
+        <span class="now-panel__dot" aria-hidden="true"></span>
+        <p>// now — no que estou focado</p>
+      </div>
+      <div class="now-panel__grid">
+        @for (item of nowItems; track item.title) {
+          <div class="now-item">
+            <p class="now-item__icon"><i [class]="item.iconClass" aria-hidden="true"></i></p>
+            <p class="now-item__title">{{ item.title }}</p>
+            <p class="now-item__desc">{{ item.desc }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

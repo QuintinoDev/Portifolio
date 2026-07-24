@@ -1,0 +1,69 @@
+<section id="terminal" class="section terminal-section">
+  <div class="container container--narrow">
+    <div appReveal class="terminal-section__header">
+      <span class="eyebrow">05 — Modo interativo</span>
+      <h2 class="heading-lg">Prefere explorar via terminal?</h2>
+      <p class="terminal-section__hint">
+        Digite um comando ou clique nos atalhos. Comece com <span class="terminal-section__hint-cmd">help</span>.
+      </p>
+    </div>
+
+    <div appReveal class="terminal-window" (click)="focusInput()">
+      <div class="terminal-window__titlebar">
+        <span class="terminal-window__dot terminal-window__dot--red"></span>
+        <span class="terminal-window__dot terminal-window__dot--yellow"></span>
+        <span class="terminal-window__dot terminal-window__dot--green"></span>
+        <span class="terminal-window__path">joaovictor&#64;portfolio: ~/dev</span>
+      </div>
+
+      <div class="terminal-window__chips">
+        @for (chip of cmdChips; track chip) {
+          <button type="button" class="terminal-window__chip" (click)="onChipClick(chip)">{{ chip }}</button>
+        }
+      </div>
+
+      <div #output class="terminal-window__output" role="log" aria-live="polite">
+        @for (entry of history(); track $index) {
+          @if (entry.kind === 'welcome') {
+            @for (line of entry.lines; track $index) {
+              <p class="terminal-line terminal-line--welcome">
+                @for (span of line; track $index) {
+                  <span [class]="'term-' + (span.tone ?? 'default')">{{ span.text }}</span>
+                }
+              </p>
+            }
+          } @else {
+            <p class="terminal-line terminal-line--echo">
+              <span class="term-accent">joaovictor</span><span class="term-muted">&#64;</span><span class="term-white">portfolio</span><span class="term-muted">:~$</span>
+              {{ entry.raw }}
+            </p>
+            @for (line of entry.lines; track $index) {
+              <p class="terminal-line">
+                @for (span of line; track $index) {
+                  <span [class]="'term-' + (span.tone ?? 'default')">{{ span.text }}</span>
+                }
+              </p>
+            }
+          }
+        }
+      </div>
+
+      <div class="terminal-window__prompt-row">
+        <span class="terminal-window__prompt">
+          <span class="term-accent">joaovictor</span><span class="term-muted">&#64;</span><span class="term-white">portfolio</span><span class="term-muted">:~$</span>
+        </span>
+        <input
+          #input
+          type="text"
+          class="terminal-window__input"
+          [(ngModel)]="inputValue"
+          (keydown)="onKeyDown($event)"
+          placeholder="digite um comando..."
+          spellcheck="false"
+          autocomplete="off"
+          aria-label="Comando do terminal"
+        />
+      </div>
+    </div>
+  </div>
+</section>

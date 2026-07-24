@@ -1,0 +1,32 @@
+<section id="contato" class="section contact">
+  <div class="container container--narrow contact__inner">
+    <div appReveal>
+      <span class="eyebrow">06 — Contato</span>
+      <h2 class="heading-lg contact__heading">
+        Vamos construir algo <span class="text-chrome">extraordinário</span>?
+      </h2>
+      <p class="contact__lead">
+        Aberto a novas oportunidades como Full Stack / Backend Pleno, e também a projetos de consultoria e freelance.
+        Me chame para conversar sobre sua vaga ou seu projeto.
+      </p>
+    </div>
+
+    <div appReveal [revealDelay]="0.1" class="contact__actions">
+      <a [href]="'mailto:' + profile.email" class="btn btn-primary">
+        <i class="fa-solid fa-envelope" aria-hidden="true"></i> Enviar e-mail
+      </a>
+      <a [href]="profile.whatsappUrl" target="_blank" rel="noopener" class="btn btn-ghost">
+        <i class="fa-brands fa-whatsapp contact__whatsapp-icon" aria-hidden="true"></i> {{ profile.whatsappDisplay }}
+      </a>
+    </div>
+
+    <div appReveal [revealDelay]="0.16" class="contact__socials">
+      @for (social of socials; track social.name) {
+        <a [href]="social.url" target="_blank" rel="noopener" [title]="social.name" data-cursor class="contact__social-link">
+          <i [class]="social.cls" aria-hidden="true"></i>
+          <span class="visually-hidden">{{ social.name }}</span>
+        </a>
+      }
+    </div>
+  </div>
+</section>

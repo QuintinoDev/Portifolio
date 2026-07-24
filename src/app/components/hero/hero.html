@@ -1,0 +1,73 @@
+<section id="home" class="hero">
+  <div class="container hero__grid">
+    <div class="hero__copy">
+      <div appReveal class="hero__badge">
+        <span class="hero__status-dot" aria-hidden="true"></span>
+        <span class="hero__status-label">status:</span>&nbsp;aberto a novas oportunidades
+      </div>
+
+      <p appReveal [revealDelay]="0.05" class="hero__kicker">// olá, meu nome é</p>
+
+      <h1 appReveal [revealDelay]="0.1" class="hero__name">
+        {{ profile.firstName }} <span class="text-chrome">{{ profile.lastName }}</span>
+      </h1>
+
+      <div appReveal [revealDelay]="0.16" class="hero__roles">
+        <span>{{ profile.roleLine1 }}</span>
+        <span class="hero__roles-dot" aria-hidden="true"></span>
+        <span>{{ profile.roleLine2 }}</span>
+      </div>
+
+      <p appReveal [revealDelay]="0.2" class="hero__specialty">
+        especialista em <span #typedText class="hero__typed"></span><span class="hero__caret" aria-hidden="true"></span>
+      </p>
+
+      <p appReveal [revealDelay]="0.26" class="hero__description">
+        Construo <strong>SaaS escaláveis</strong>, arquiteturas robustas e soluções inteligentes para problemas reais —
+        sistemas corporativos com <strong>.NET, Angular</strong> e arquitetura limpa.
+      </p>
+
+      <div appReveal [revealDelay]="0.32" class="hero__actions">
+        <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
+        <a [href]="profile.resumeUrl" download class="btn btn-ghost">Baixar CV</a>
+      </div>
+
+      <div appReveal [revealDelay]="0.38">
+        <p class="hero__tech-label">Tecnologias que domino</p>
+        <ul class="hero__tech-icons">
+          @for (icon of heroIcons; track icon.name) {
+            <li>
+              <i [class]="icon.cls" [title]="icon.name" aria-hidden="true"></i>
+              <span class="visually-hidden">{{ icon.name }}</span>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+
+    <div appReveal [revealDelay]="0.3" class="hero__portrait">
+      <div class="hero__portrait-ring" aria-hidden="true"></div>
+      <div class="hero__portrait-frame">
+        <div class="hero__portrait-photo">
+          <app-image-slot [src]="profile.photoUrl" alt="Foto profissional de João Victor" shape="circle" label="Sua foto profissional" [priority]="true" />
+        </div>
+      </div>
+
+      <div class="hero__float-card hero__float-card--code" aria-hidden="true">
+        <p class="hero__float-card-title">Developer.cs</p>
+        <pre class="hero__code-snippet"><span class="tok-kw">public class</span> <span class="tok-type">Developer</span> &#123;
+  <span class="tok-kw">string</span> <span class="tok-prop">Role</span> =&gt; <span class="tok-str">"Arquiteto"</span>;
+  <span class="tok-kw">bool</span> <span class="tok-prop">OpenToWork</span> =&gt; <span class="tok-bool">true</span>;
+&#125;</pre>
+      </div>
+
+      <div class="hero__float-card hero__float-card--tech">
+        <i class="devicon-dotnetcore-plain colored" aria-hidden="true"></i>
+        <div>
+          <p class="hero__float-card-tech">.NET 8 · 9 · 10</p>
+          <p class="hero__float-card-sub">Clean Architecture</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

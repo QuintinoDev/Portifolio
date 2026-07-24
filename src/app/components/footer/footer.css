@@ -1,0 +1,24 @@
+.footer {
+  position: relative;
+  z-index: 2;
+  padding: 32px var(--page-pad-inline);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--color-graphite-muted);
+}
+
+.footer__accent {
+  /* Angular's true brand red (#dd0031) fails WCAG AA at this size on this
+     background (3.9:1); same hue lightened just enough to clear 4.5:1. */
+  color: #f60037;
+}
+
+.footer__dotnet {
+  color: var(--color-fog-slate);
+}

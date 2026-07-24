@@ -1,0 +1,23 @@
+<section class="stats-section" aria-label="Números em resumo">
+  <div class="container stats-grid">
+    @for (stat of stats; track stat.label) {
+      <div appReveal class="stats-card">
+        <p class="stats-card__number">
+          <span [appCountUp]="stat.num">0</span>{{ stat.suffix }}
+        </p>
+        <p class="stats-card__label">{{ stat.label }}</p>
+      </div>
+    }
+  </div>
+
+  <div appReveal [revealDelay]="0.1" class="container">
+    <p class="lighthouse-badge">
+      <i class="fa-solid fa-gauge-high" aria-hidden="true"></i>
+      Auditoria Lighthouse deste site ({{ lighthouseAuditDate }}):
+      <span class="lighthouse-badge__score">{{ lighthouseScores.performance }} Performance</span> ·
+      <span class="lighthouse-badge__score">{{ lighthouseScores.accessibility }} Acessibilidade</span> ·
+      <span class="lighthouse-badge__score">{{ lighthouseScores.bestPractices }} Boas práticas</span> ·
+      <span class="lighthouse-badge__score">{{ lighthouseScores.seo }} SEO</span>
+    </p>
+  </div>
+</section>

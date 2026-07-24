@@ -1,0 +1,44 @@
+<div appReveal class="github-activity">
+  <p class="github-activity__comment"># atividade real no GitHub — dados ao vivo, sem enfeite</p>
+
+  @switch (state()) {
+    @case ('ready') {
+      @if (stats(); as s) {
+        <div class="github-activity__grid">
+          <div class="github-activity__stat">
+            <p class="github-activity__value">{{ s.publicRepos }}</p>
+            <p class="github-activity__label">repositórios públicos</p>
+          </div>
+          <div class="github-activity__stat">
+            <p class="github-activity__value">{{ s.followers }}</p>
+            <p class="github-activity__label">seguidores</p>
+          </div>
+          <div class="github-activity__stat">
+            <p class="github-activity__value">{{ s.totalStars }}</p>
+            <p class="github-activity__label">stars recebidas</p>
+          </div>
+          @if (s.topLanguages.length) {
+            <div class="github-activity__stat">
+              <p class="github-activity__value github-activity__value--lang">
+                {{ s.topLanguages[0].name }}
+              </p>
+              <p class="github-activity__label">linguagem mais usada</p>
+            </div>
+          }
+        </div>
+        <a [href]="s.profileUrl" target="_blank" rel="noopener" class="github-activity__link">
+          <i class="devicon-github-original" aria-hidden="true"></i> github.com/{{ s.profileUrl.split('/').pop() }}
+        </a>
+      }
+    }
+    @case ('loading') {
+      <p class="github-activity__status">▸ carregando dados da API do GitHub...</p>
+    }
+    @default {
+      <p class="github-activity__status github-activity__status--muted">
+        ▸ não consegui carregar os dados ao vivo agora — veja direto em
+        <a href="https://github.com/QuintinoDev" target="_blank" rel="noopener">github.com/QuintinoDev</a>.
+      </p>
+    }
+  }
+</div>

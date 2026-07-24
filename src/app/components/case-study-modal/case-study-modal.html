@@ -1,0 +1,84 @@
+@if (project; as p) {
+  <div class="modal-backdrop" (click)="onBackdropClick($event)">
+    <div
+      #dialog
+      class="modal-dialog"
+      role="dialog"
+      aria-modal="true"
+      [attr.aria-labelledby]="'case-study-title'"
+      tabindex="-1"
+    >
+      <button type="button" class="modal-dialog__close" (click)="close()" aria-label="Fechar case study">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+
+      <div class="modal-dialog__header">
+        <span class="chip modal-dialog__category">{{ p.category }}</span>
+        @if (p.caseStudy.status === 'in-development') {
+          <span class="modal-dialog__status modal-dialog__status--dev">Em desenvolvimento</span>
+        } @else {
+          <span class="modal-dialog__status modal-dialog__status--live">Em produção</span>
+        }
+        <h2 id="case-study-title" class="modal-dialog__title">{{ p.name }}</h2>
+      </div>
+
+      @if (p.caseStudy.screenshots.length) {
+        <div class="modal-dialog__gallery">
+          @for (shot of p.caseStudy.screenshots; track shot.alt) {
+            <div class="modal-dialog__shot">
+              <app-image-slot [src]="shot.src" [alt]="shot.alt" [label]="shot.alt" />
+            </div>
+          }
+        </div>
+      }
+
+      <div class="modal-dialog__body">
+        <section class="case-section">
+          <h3 class="case-section__title">O problema</h3>
+          <p>{{ p.caseStudy.problem }}</p>
+        </section>
+
+        <section class="case-section">
+          <h3 class="case-section__title">Arquitetura</h3>
+          <p>{{ p.caseStudy.architecture }}</p>
+        </section>
+
+        @if (p.caseStudy.tradeoffs.length) {
+          <section class="case-section">
+            <h3 class="case-section__title">Trade-offs (sem esconder o que não é perfeito)</h3>
+            <ul class="case-section__tradeoffs">
+              @for (t of p.caseStudy.tradeoffs; track t) {
+                <li><span aria-hidden="true">▸</span>{{ t }}</li>
+              }
+            </ul>
+          </section>
+        }
+
+        <section class="case-section">
+          <h3 class="case-section__title">Testes</h3>
+          <p>{{ p.caseStudy.testing }}</p>
+        </section>
+
+        <section class="case-section">
+          <h3 class="case-section__title">Resultado</h3>
+          <p>{{ p.caseStudy.result }}</p>
+        </section>
+
+        <ul class="modal-dialog__stack">
+          @for (tech of p.stack; track tech) {
+            <li>{{ tech }}</li>
+          }
+        </ul>
+
+        @if (p.caseStudy.testimonial; as testimonial) {
+          <blockquote class="case-testimonial">
+            <p class="case-testimonial__quote">&ldquo;{{ testimonial.quote }}&rdquo;</p>
+            <footer class="case-testimonial__author">
+              — {{ testimonial.author }}, <cite>{{ testimonial.role }}</cite>
+            </footer>
+          </blockquote>
+        }
+      </div>
+    </div>
+  </div>
+}
