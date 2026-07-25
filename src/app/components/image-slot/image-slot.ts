@@ -17,4 +17,6 @@ export class ImageSlot {
   @Input() shape: 'rect' | 'circle' = 'rect';
   /** Set for the hero/LCP image only — hints the browser to fetch it first. */
   @Input() priority = false;
+  /** Shapes the placeholder illustration while no real asset exists. */
+  @Input() kind: 'screenshot' | 'photo' = 'screenshot';
 }

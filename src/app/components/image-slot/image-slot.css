@@ -14,15 +14,16 @@
   border-radius: 50%;
 }
 
-.image-slot__placeholder {
+/* Shared backdrop for both placeholder kinds: blueprint grid + soft glow,
+   matching the site's "Architect's Terminal" background treatment instead
+   of reading as a generic missing-image box. */
+.image-slot__wireframe,
+.image-slot__portrait {
+  position: relative;
   width: 100%;
   height: 100%;
   min-height: inherit;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
+  overflow: hidden;
   background:
     repeating-linear-gradient(
       135deg,
@@ -31,20 +32,132 @@
       transparent 1px,
       transparent 14px
     ),
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(112, 142, 196, 0.14), transparent 70%),
     linear-gradient(160deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
-  border: 1px dashed rgba(255, 255, 255, 0.16);
-  color: var(--color-graphite-faint);
-  font-family: var(--font-mono);
-  font-size: 13px;
-  text-align: center;
-  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
 }
 
-.image-slot__placeholder--circle {
+/* --- Screenshot placeholder: a wireframed app window, not a broken image --- */
+.image-slot__wireframe {
+  display: flex;
+  flex-direction: column;
+}
+
+.image-slot__wireframe-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  flex-shrink: 0;
+}
+
+.image-slot__wireframe-bar span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.image-slot__wireframe-address {
+  margin-left: 10px;
+  height: 8px;
+  width: 40%;
+  min-width: 60px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.image-slot__wireframe-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+  padding: 18px clamp(16px, 6%, 32px);
+}
+
+.image-slot__wireframe-row {
+  display: flex;
+  gap: 10px;
+}
+
+.image-slot__wireframe-block {
+  height: 28px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(160deg, rgba(196, 198, 210, 0.14), rgba(196, 198, 210, 0.05));
+  border: 1px solid rgba(196, 198, 210, 0.14);
+}
+
+.image-slot__wireframe-block--sm {
+  flex: 1;
+  height: 22px;
+}
+
+.image-slot__wireframe-block--md {
+  flex: 1;
+  height: 64px;
+}
+
+.image-slot__wireframe-block--lg {
+  flex: 2;
+  height: 64px;
+}
+
+.image-slot__wireframe-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.image-slot__wireframe-line {
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+/* --- Photo placeholder: soft silhouette instead of a raw file icon --- */
+.image-slot__portrait {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.image-slot__portrait--circle {
   border-radius: 50%;
 }
 
-.image-slot__placeholder i {
-  font-size: 28px;
-  opacity: 0.5;
+.image-slot__portrait i {
+  font-size: 48px;
+  color: rgba(196, 198, 210, 0.28);
+}
+
+/* --- Shared caption --- */
+.image-slot__caption {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: auto;
+  padding: 10px 16px 14px;
+  color: var(--color-graphite-faint);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.image-slot__portrait .image-slot__caption {
+  margin-top: 0;
+  padding: 0 16px;
+}
+
+.image-slot__caption i {
+  font-size: 12px;
+  opacity: 0.7;
 }
